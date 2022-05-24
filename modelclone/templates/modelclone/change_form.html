@@ -1,5 +1,9 @@
 {% extends "admin/change_form.html" %}
 
+{% block breadcrumbs %}
+{% with add=False %}{{ block.super }}{% endwith %}
+{% endblock %}
+
 {% block object-tools-items %}
     {% if include_clone_link %}
         <li><a href="clone/">{{ clone_verbose_name }}</a></li>
