@@ -7,3 +7,4 @@ dist
 .tox
 .cache
 env
+django_modelclone.egg-info
