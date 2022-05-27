@@ -1,21 +1,13 @@
-from django import VERSION
 from django.contrib.admin import ModelAdmin, helpers
-try:
-    from django.contrib.admin.utils import unquote
-except ImportError:
-    # django < 1.7
-    from django.contrib.admin.util import unquote
-from django.conf.urls import url
-from django.utils.encoding import force_text
-from django.utils.translation import ugettext as _
-from django.utils.translation import ugettext_lazy as lazy
+from django.contrib.admin.utils import unquote
+from django.conf.urls import re_path
+from django.utils.encoding import force_str
+from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as lazy
 from django.utils.html import escape
 from django.forms.models import model_to_dict
 from django.forms.formsets import all_valid
-if VERSION[0] < 2:
-    from django.core.urlresolvers import reverse
-else:
-    from django.urls import reverse
+from django.urls import reverse
 from django.core.exceptions import PermissionDenied
 from django.http import Http404
 from django.db.models.fields.files import FieldFile, FileField
@@ -49,19 +41,13 @@ class ClonableModelAdmin(ModelAdmin):
             self.model._meta.app_label,
             getattr(self.model._meta, 'module_name', getattr(self.model._meta, 'model_name', '')))
 
-        if VERSION[0] == 1 and VERSION[1] < 9:
-            from django.conf.urls import patterns
-            new_urlpatterns = patterns('',
-                url(r'^(.+)/clone/$',
-                    self.admin_site.admin_view(self.clone_view),
-                    name=url_name)
-                )
-        else:
-            new_urlpatterns = [
-                url(r'^(.+)/change/clone/$',
-                    self.admin_site.admin_view(self.clone_view),
-                    name=url_name)
-            ]
+        new_urlpatterns = [
+            re_path(
+                r'^(.+)/change/clone/$',
+                self.admin_site.admin_view(self.clone_view),
+                name=url_name,
+            )
+        ]
 
         original_urlpatterns = super(ClonableModelAdmin, self).get_urls()
 
@@ -85,7 +71,7 @@ class ClonableModelAdmin(ModelAdmin):
 
         if original_obj is None:
             raise Http404(_('{name} object with primary key {key} does not exist.'.format(
-                name=force_text(opts.verbose_name),
+                name=force_str(opts.verbose_name),
                 key=repr(escape(object_id))
             )))
 
@@ -193,7 +179,7 @@ class ClonableModelAdmin(ModelAdmin):
             media = media + inline_admin_formset.media
 
 
-        title = u'{0} {1}'.format(self.clone_verbose_name, opts.verbose_name)
+        title = '{0} {1}'.format(self.clone_verbose_name, opts.verbose_name)
 
         context = {
             'title': title,

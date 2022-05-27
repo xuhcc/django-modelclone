@@ -1,18 +1,12 @@
 import shutil
-try:
-    from urllib.parse import urlparse
-except ImportError:
-    from urlparse import urlparse
+from urllib.parse import urlparse
 
 import django
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.admin import site as default_admin_site
 from django import VERSION
-if VERSION[0] < 2:
-    from django.core.urlresolvers import reverse
-else:
-    from django.urls import reverse
+from django.urls import reverse
 from django.core.exceptions import PermissionDenied
 from django.core.files import File
 from django.conf import settings
