@@ -16,7 +16,7 @@ class PostAdmin(ClonableModelAdmin):
     inlines = (CommentInline, MultimediaInline)
     clone_verbose_name = 'Clone it!'
 
-    list_display = '__unicode__', 'clone_link'
+    list_display = '__str__', 'clone_link'
 
     def tweak_cloned_fields(self, fields):
         fields['title'] = "%s (duplicate)" % fields['title']

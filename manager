@@ -24,18 +24,13 @@ def django_environ(testing=False):
 
         def create_database():
             import django
-            MAJOR, MINOR = django.VERSION[0], django.VERSION[1]
 
-            if MAJOR >= 2 or (MAJOR == 1 and MINOR >= 7):
-                django.setup()
+            django.setup()
 
             from django.core.management import call_command
             from django.contrib.auth.models import User
 
-            if MAJOR >= 2 or (MAJOR == 1 and MINOR >= 7):
-                call_command('migrate', interactive=False)
-            else:
-                call_command('syncdb', interactive=False)
+            call_command('migrate', interactive=False)
 
             admin, created = User.objects.get_or_create(
                 username='admin',
