@@ -1,13 +1,12 @@
 from django.contrib.admin import ModelAdmin, helpers
 from django.contrib.admin.utils import unquote
-from django.conf.urls import re_path
 from django.utils.encoding import force_str
 from django.utils.translation import gettext as _
 from django.utils.translation import gettext_lazy as lazy
 from django.utils.html import escape
 from django.forms.models import model_to_dict
 from django.forms.formsets import all_valid
-from django.urls import reverse
+from django.urls import re_path, reverse
 from django.core.exceptions import PermissionDenied
 from django.http import Http404
 from django.db.models.fields.files import FieldFile, FileField
