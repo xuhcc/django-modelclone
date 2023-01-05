@@ -1,5 +1,7 @@
 # django-modelclone
 
+[![](https://img.shields.io/pypi/v/django-modelclone-next.svg)](https://pypi.org/project/django-modelclone-next/)
+
 Allows users to duplicate a model in admin.
 
 ## Installation
