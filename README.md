@@ -4,7 +4,7 @@ Allows users to duplicate a model in admin.
 
 ## Installation
 
-    $ pip install django-modelclone
+    $ pip install django-modelclone-next
 
 then:
 
@@ -47,7 +47,7 @@ See `tox.ini`
 
 ## Hacking
 
-Fork the [repository on github](http://github.com/realgeeks/django-modelclone), make your
+Fork the [repository on github](http://github.com/xuhcc/django-modelclone), make your
 changes (don't forget the tests) and send a pull request.
 
 To run the tests, install and run [Tox](http://tox.readthedocs.org/):

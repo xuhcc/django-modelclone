@@ -3,8 +3,9 @@
 *.swp
 .DS_Store
 MANIFEST
+build
 dist
 .tox
 .cache
 env
-django_modelclone.egg-info
+*.egg-info
