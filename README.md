@@ -62,11 +62,11 @@ To run the tests, install and run [Tox](http://tox.readthedocs.org/):
 You can also run the sample project to test manually. In this case you'll need to
 install Django, or just use one of the virtualenvs tox creates, for example:
 
-    $ source .tox/py310-django32/bin/activate
+    $ source .tox/py312-django32/bin/activate
 
 then start the server
 
-    (py310-django32) $ ./manager serve
+    (py312-django32) $ ./manager serve
 
 The app is available on [http://localhost:8000/admin/](http://localhost:8000/admin/),
 username and password "admin".
