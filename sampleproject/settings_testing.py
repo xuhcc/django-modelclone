@@ -1,4 +1,3 @@
-
 from sampleproject.settings import *
 
 MEDIA_ROOT = '/tmp/modelclone-media-test'

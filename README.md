@@ -45,7 +45,7 @@ side effects.
 ## Requirements
 
 * Python 3
-* Django 3.2, 4.0, 4.2, 5.0, 5.1 or 5.2
+* Django 4.2, 5.0, 5.1 or 5.2
 
 See `tox.ini`
 
