@@ -45,7 +45,7 @@ side effects.
 ## Requirements
 
 * Python 3
-* Django 3.2, 4.0 or 4.2
+* Django 3.2, 4.0, 4.2, 5.0, 5.1 or 5.2
 
 See `tox.ini`
 
@@ -62,11 +62,11 @@ To run the tests, install and run [Tox](http://tox.readthedocs.org/):
 You can also run the sample project to test manually. In this case you'll need to
 install Django, or just use one of the virtualenvs tox creates, for example:
 
-    $ source .tox/py312-django32/bin/activate
+    $ source .tox/py313-django52/bin/activate
 
 then start the server
 
-    (py312-django32) $ ./manager serve
+    (py313-django52) $ ./manager serve
 
 The app is available on [http://localhost:8000/admin/](http://localhost:8000/admin/),
 username and password "admin".
